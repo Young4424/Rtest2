@@ -34,13 +34,15 @@ table(welfare$sex)
 
 welfare$sex = ifelse(welfare$sex == 9, NA, welfare$sex)
 table(is.na(welfare$sex))
-
+#welfare$sex가 수치가 9이면 NA 부여한ㄷ
 #성별에 항목 이름 부여
 welfare$sex = ifelse(welfare$sex == 1, "male", "female")
+#welfare$sex 가 1이면, 남자 , 아니면 여자부여한다!
+
 table(welfare$sex)
 library(ggplot2)
 qplot(welfare$sex)
-
+#간단하게 그래프로 그려서 표ㅎ
 ################################################
 
 class(welfare$income)
@@ -52,7 +54,7 @@ qplot(welfare$income) + xlim(0,1000)
 summary(welfare$income)
 
 welfare$income = ifelse(welfare$income %in% c(0,9999), NA, welfare$income)
-
+#welfare에서 income이 0,9999 이면 NA 부여한다!
 #결측치 확인
 table(is.na(welfare$income))
 
